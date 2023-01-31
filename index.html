@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <style>
+      /* Style the tab links */
+      .tablink {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 33%;
+      }
+      
+      /* Change background color of tabs on hover */
+      .tablink:hover {
+        background-color: #777;
+      }
+      
+      /* Style the tab content */
+      .tabcontent {
+        color: black;
+        display: none;
+        padding: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="tablink" onclick="openPage('run', this, 'yellow')">Run</button>
+    <button class="tablink" onclick="openPage('info', this, 'red')">Poke-Info</button>
+    <button class="tablink" onclick="openPage('account', this, 'orange')">Account</button>
+    
+    <div id="run" class="tabcontent">
+      <button type="start">Start Run</button>
+    </div>
+    <div id="info" class="tabcontent">
+      <h1>W.I.P.</h1>
+      <p>Will display information about your current party and pokemon you've met before</p>
+    </div>
+    <div id="account" class="tabcontent">
+       <main>
+      <section id="home">
+        <h1>Welcome to My Website</h1>
+        <p>This is the home page.</p>
+      </section>
+      <section id="login">
+        <h1>Login</h1>
+        <form>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username"><br><br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password"><br><br>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section id="signup">
+        <h1>Sign Up</h1>
+        <form>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username"><br><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email"><br><br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password"><br><br>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    </div>
+    
+    <script>
+      function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      }
+      
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+  </body>
+</html>
