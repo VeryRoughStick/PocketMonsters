@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -75,15 +76,41 @@
       opacity: 1;
       right: 0;
       }
+      
+      .buttoncontent {
+        color: black;
+        display: none;
+        padding: 50px;
+        text-align: center;
+      }
       </style>
     </head>
       <body>
       
-      <button class="button" style="vertical-align:middle"><span>Start Run </span></button>
+      <button class="button" onclick="openPage('game', this, 'red')" style="vertical-align:middle"><span>Start Run </span></button>
       <button class="button" style="vertical-align:middle"><span>Upgrades</span></button>
       </body>
     </div>
     
+    <div id="game" class="tabcontent">
+      <style>
+        .spawner {
+        background-image: url(https://www.nicepng.com/png/full/754-7541169_islas-png.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 200px;
+        height: 200px;
+        border: none;
+        cursor: pointer;
+      }
+      </style>
+      <body>
+        <button class="game" style="vertical-align:left"><span></span></button>
+
+        
+      </body>
+    </div>
     
     <div id="info" class="tabcontent">
       <h1>W.I.P.</h1>
@@ -91,10 +118,6 @@
     </div>
     <div id="account" class="tabcontent">
        <main>
-      <section id="home">
-        <h1>Welcome to My Website</h1>
-        <p>This is the home page.</p>
-      </section>
       <section id="login">
         <h1>Login</h1>
         <form>
