@@ -6,5 +6,8 @@ function fetchKantoPokemon(){
         .then(allpokemon => console.log(allpokemon));
 }
 
-fetchKantoPokemon();
+// function giveStarter(){
+//     1 4 7
+    
+// }
 

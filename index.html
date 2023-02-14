@@ -33,7 +33,8 @@
     <button class="tablink" onclick="openPage('run', this, 'yellow')">Run</button>
     <button class="tablink" onclick="openPage('info', this, 'red')">Poke-Info</button>
     <button class="tablink" onclick="openPage('account', this, 'orange')">Account</button>
-    
+ 
+ <!-- - - - - Pre Run Tab - - - - -->    
     <div id="run" class="tabcontent">
      <head>
       <style>
@@ -91,7 +92,8 @@
       <button class="button" style="vertical-align:middle"><span>Upgrades</span></button>
       </body>
     </div>
-    
+
+<!-- - - - - Actual Run Tab - - - - -->    
     <div id="game" class="tabcontent">
       <style>
         .spawner {
@@ -111,11 +113,36 @@
         
       </body>
     </div>
-    
+
+
+<!-- - - - - Pokemon info Page - - - - -->
     <div id="info" class="tabcontent">
-      <h1>W.I.P.</h1>
-      <p>Will display information about your current party and pokemon you've met before</p>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content ="width=device-width, initial-scale=1.0">
+          
+          <link rel="stylesheet" href="pokedex.css">
+          <script src=pokedex.js></script>
+        </head>
+        
+    <!--Pokedex-->
+        <body>
+          <div id="content-box">
+            <!-- Left Side, display pokemon info -->
+            <div id="pokemon-info">
+              <img id="pokemon-img" src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+              <div id="pokemon-types">
+                <span class="type-box grass">GRASS</span><span class="type-box poison">POISON</span>
+              </div>
+              <div id="pokemon-description"></div>
+            </div>
+            <!-- Right Side, display pokemon list -->
+            <div id="pokemon-list"></div>
+          </div>
+        </body>
     </div>
+    
+<!-- - - - - Login and Signup Tab - - - - -->    
     <div id="account" class="tabcontent">
        <main>
       <section id="login">
@@ -143,6 +170,8 @@
     </main>
     </div>
     
+    
+<!-- - - - - I don't know why this is here but I am afraid to remove it - - - - -->    
     <script>
       function openPage(pageName,elmnt,color) {
         var i, tabcontent, tablinks;
