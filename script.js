@@ -51,13 +51,13 @@ function giveStarter(){
     }
 }
 
-function battlePokemon(num, num2){
-    let StartVal = Math.floor(Math.random() * num) + num2;
-    getPokemon(StartVal);
+// function battlePokemon(num, num2){
+//     let StartVal = Math.floor(Math.random() * num) + num2;
+//     getPokemon(StartVal);
     
-    let probability = Math.floor(Math.random()*)
+//     let probability = Math.floor(Math.random()*)
     
-}
+// }
 
 // function checkEffective(Pokemon){
 //     if(Pokemon[1].equals("normal"));
