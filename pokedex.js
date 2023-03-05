@@ -1,9 +1,7 @@
-import fetch from 'node-fetch';
+const pokemonCount = 151;
+var pokedex = {};
 
-const pokemonCount = 300;
-var pokedex = {}; // {1 : {"name" : "bulbsaur", "img" : url, "type" : ["grass", "poison"], "desc" : "...."} }
-
-window.onload = async function() {
+window.onload = async function () {
     for (let i = 1; i <= pokemonCount; i++) {
         await getPokemon(i);
         let pokemon = document.createElement("div");
@@ -16,7 +14,6 @@ window.onload = async function() {
 
     document.getElementById("pokemon-description").innerText = pokedex[1]["desc"];
 
-    console.log(pokedex);
 }
 
 async function getPokemon(num) {
@@ -24,7 +21,6 @@ async function getPokemon(num) {
 
     let res = await fetch(url);
     let pokemon = await res.json();
-    console.log(pokemon);
 
     let pokemonName = pokemon["name"];
     let pokemonType = pokemon["types"];
@@ -33,14 +29,13 @@ async function getPokemon(num) {
     res = await fetch(pokemon["species"]["url"]);
     let pokemonDesc = await res.json();
 
-   console.log(pokemonDesc);
     pokemonDesc = pokemonDesc["flavor_text_entries"][9]["flavor_text"];
 
-    pokedex[num] = {"name" : pokemonName, "img" : pokemonImg, "types" : pokemonType, "desc" : pokemonDesc};
+    pokedex[num] = { "name": pokemonName, "img": pokemonImg, "types": pokemonType, "desc": pokemonDesc };
 
 }
 
-function updatePokemon(){
+function updatePokemon() {
     document.getElementById("pokemon-img").src = pokedex[this.id]["img"];
 
 
@@ -55,7 +50,7 @@ function updatePokemon(){
         let type = document.createElement("span");
         type.innerText = types[i]["type"]["name"].toUpperCase();
         type.classList.add("type-box");
-        type.classList.add(types[i]["type"]["name"]); 
+        type.classList.add(types[i]["type"]["name"]);
         typesDiv.append(type);
     }
 

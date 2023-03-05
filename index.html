@@ -1,116 +1,139 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <style>
+    /* Style the tab links */
+    .tablink {
+      background-color: #555;
+      color: white;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-size: 17px;
+      width: 33%;
+    }
+
+    /* Change background color of tabs on hover */
+    .tablink:hover {
+      background-color: #777;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      color: black;
+      display: none;
+      padding: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="tablink" onclick="openPage('run', this, 'yellow')">Run</button>
+  <button class="tablink" onclick="openPage('info', this, 'red')">Poke-Info</button>
+  <button class="tablink" onclick="openPage('Party', this, 'orange')">Party</button>
+
+  <!-- - - - - Pre Run Tab - - - - -->
+
   <head>
     <style>
-      /* Style the tab links */
-      .tablink {
-        background-color: #555;
-        color: white;
-        float: left;
+      .button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #f4511e;
         border: none;
-        outline: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
         cursor: pointer;
-        padding: 14px 16px;
-        font-size: 17px;
-        width: 33%;
+        margin: 5px;
       }
-      
-      /* Change background color of tabs on hover */
-      .tablink:hover {
-        background-color: #777;
+
+      .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
       }
-      
-      /* Style the tab content */
-      .tabcontent {
+
+      .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .button:hover span {
+        padding-right: 25px;
+      }
+
+      .button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+
+      .buttoncontent {
         color: black;
         display: none;
         padding: 50px;
         text-align: center;
       }
+
+      .pbutton {
+        box-shadow: inset 0px 1px 0px 0px #e184f3;
+        background: linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
+        background-color: #c123de;
+        border-radius: 6px;
+        border: 1px solid #a511c0;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 6px 24px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #9b14b3;
+      }
+
+      .pbutton:hover {
+        background: linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
+        background-color: #a20dbd;
+      }
+
+      .pbutton:active {
+        position: relative;
+        top: 1px;
+      }
     </style>
   </head>
-  <body>
-    <button class="tablink" onclick="openPage('run', this, 'yellow')">Run</button>
-    <button class="tablink" onclick="openPage('info', this, 'red')">Poke-Info</button>
-    <button class="tablink" onclick="openPage('account', this, 'orange')">Account</button>
- 
- <!-- - - - - Pre Run Tab - - - - -->
-   <head>
-     <style>
-       .button {
-          display: inline-block;
-          border-radius: 4px;
-          background-color: #f4511e;
-          border: none;
-          color: #FFFFFF;
-          text-align: center;
-          font-size: 28px;
-          padding: 20px;
-          width: 200px;
-          transition: all 0.5s;
-          cursor: pointer;
-          margin: 5px;
-      }
-      
-      .button span {
-          cursor: pointer;
-          display: inline-block;
-          position: relative;
-          transition: 0.5s;
-      }
-      
-      .button span:after {
-          content: '\00bb';
-          position: absolute;
-          opacity: 0;
-          top: 0;
-          right: -20px;
-          transition: 0.5s;
-      }
-      
-      .button:hover span {
-          padding-right: 25px;
-      }
-      
-      .button:hover span:after {
-          opacity: 1;
-          right: 0;
-      }
-      
-      .buttoncontent {
-      color: black;
-      display: none;
-      padding: 50px;
-      text-align: center;
-      }
-      
-      .poke-choice-button{
-      font-family: Arial;
-      color: #ffffff;
-      font-size: 22px;
-      background: #b834d9;
-      padding: 10px 20px 10px 20px;
-      text-decoration: none;
-      }
-      
-      
-     </style>
-   </head>
-    <div id="run" class="tabcontent">
-      <body>
-      <button class="button" onclick="openPage('pregame', this, 'red')" style="vertical-align:middle"><span>Choose Starter </span></button>      
-      </body>
-    </div>
-    
-    <div id="pregame" class="tabcontent">
-      <button class="poke-choice-button" onclick="giveStarter()">Random</button>
-      <button class="button" onclick="openPage('game', this, 'red')" style="vertical-align:middle"><span>Start Run </span></button>
-    </div>
+  <div id="run" class="tabcontent">
 
-<!-- - - - - Actual Run Tab - - - - -->
-    <head>
-      <style>
-        .kanto-button{
+    <body>
+      <button class="button" onclick="openPage('pregame', this, 'red')" style="vertical-align:middle"><span>Choose
+          Starter </span></button>
+    </body>
+  </div>
+
+  <div id="pregame" class="tabcontent">
+    <button class="pbutton" onclick="giveStarter()">Random</button>
+    <button class="button" onclick="openPage('game', this, 'red')" style="vertical-align:middle"><span>Start Run
+      </span></button>
+  </div>
+
+  <!-- - - - - Actual Run Tab - - - - -->
+
+  <head>
+    <style>
+      .kanto-button {
         background-image: url(kanto.png);
         background-repeat: no-repeat;
         background-position: center;
@@ -120,88 +143,172 @@
         border: none;
         cursor: pointer;
       }
-      </style>      
-    </head>
-    <div id="game" class="tabcontent">
-      <body>
-        <button class="kanto-button" style="vertical-align:left"><span></span></button>
-      </body>
-    </div>
+    </style>
+  </head>
+  <div id="game" class="tabcontent">
 
-
-<!-- - - - - Pokemon info Page - - - - -->
-    <div id="info" class="tabcontent">
-     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pokedex</title>
-  
-        <link rel="stylesheet" href="pokedex.css">
-        <script type = "module" src="pokedex.js"></script>
-    </head>
-  
     <body>
-        <div id="content-box">
-            <!-- Left Side, display pokemon info -->
-            <div id="pokemon-info">
-                <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-                <div id="pokemon-types">
-                    <span class="type-box grass">GRASS</span><span class="type-box poison">POISON</span>
-                </div>
-                <div id="pokemon-description"></div>
-            </div>
-            <!-- Right side, display pokemon list -->
-            <div id="pokemon-list">
-            </div>
+      <button class="kanto-button" onclick="updateBattle()"><span></span></button>
+      <div>
+        <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+        <div id="pokemon-types">
+          <span class="type-box grass">GRASS</span><span class="type-box poison">POISON</span>
         </div>
-      </body>
-    </div>
-    
-<!-- - - - - Login and Signup Tab - - - - -->    
-    <div id="account" class="tabcontent">
-       <main>
-      <section id="login">
-        <h1>Login</h1>
-        <form>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username"><br><br>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password"><br><br>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-      <section id="signup">
-        <h1>Sign Up</h1>
-        <form>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username"><br><br>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email"><br><br>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password"><br><br>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
+      </div>
+      <div>
+        <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+        <div id="pokemon-types">
+          <span class="type-box grass">GRASS</span><span class="type-box poison">POISON</span>
+        </div>
+      </div>
+    </body>
+  </div>
+
+
+
+  <!-- - - - - Pokemon info Page - - - - -->
+  <div id="info" class="tabcontent">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pokedex</title>
+
+      <link rel="stylesheet" href="pokedex.css">
+      <script type="module" src="pokedex.js"></script>
+    </head>
+
+    <body>
+      <div id="content-box">
+        <!-- Left Side, display pokemon info -->
+        <div id="pokemon-info">
+          <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+          <div id="pokemon-types">
+            <span class="type-box grass">GRASS</span><span class="type-box poison">POISON</span>
+          </div>
+          <div id="pokemon-description"></div>
+        </div>
+        <!-- Right side, display pokemon list -->
+        <div id="pokemon-list">
+        </div>
+      </div>
+    </body>
+  </div>
+
+  <!-- - - - - Login and Signup Tab - - - - -->
+  <div id="Party" class="tabcontent">
+    <main>
+
+      <body>W.I.P.</body>
     </main>
-    </div>
-    
-    
-    <script>
-      function openPage(pageName,elmnt,color) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].style.backgroundColor = "";
-        }
-        document.getElementById(pageName).style.display = "block";
-        elmnt.style.backgroundColor = color;
+  </div>
+
+
+  <script>
+    function openPage(pageName, elmnt, color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
       }
-      
-      document.getElementById("defaultOpen").click();
-    </script>
-  </body>
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+
+    document.getElementById("defaultOpen").click();
+  </script>
+</body>
+
+
+<script>
+  var StarterName;
+  var StarterType;
+  var StarterImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
+
+  var EnemyName;
+  var EnemyType;
+  var EnemyImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
+
+
+  async function getStarterPokemon(num) {
+    let url = "https://pokeapi.co/api/v2/pokemon/" + num.toString();
+
+    let res = await fetch(url);
+    let pokemon = await res.json();
+
+    StarterName = pokemon["name"];
+    StarterType = pokemon["types"];
+    StarterImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + num.toString() + ".png";
+  }
+
+  async function getPokemon(num) {
+    let url = "https://pokeapi.co/api/v2/pokemon/" + num.toString();
+
+    let res = await fetch(url);
+    let pokemon = await res.json();
+
+    EnemyName = pokemon["name"];
+    EnemyType = pokemon["types"];
+    EnemyImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + num.toString() + ".png";
+  }
+
+  function giveStarter() {
+    console.log("clicked");
+
+    let StartVal = Math.floor(Math.random() * 3);
+
+    if (StartVal == 1) {
+      getStarterPokemon(1);
+    }
+    else if (StartVal == 2) {
+      getStarterPokemon(4);
+    }
+    else if (StartVal == 3) {
+      getStarterPokemon(7);
+    }
+
+    let ding = new Audio('ding.mp3');
+    ding.play();
+  }
+
+  function updateBattle() {
+    getPokemon(Math.floor(Math.random() * 151));
+
+    document.getElementById("pokemon-img").src = enemyImage;
+
+
+    let typesDiv = document.getElementById("pokemon-types");
+    while (typesDiv.firstChild) {
+      typesDiv.firstChild.remove();
+    }
+
+
+    let types = pokedex[this.id]["types"];
+    for (let i = 0; i < types.length; i++) {
+      let type = document.createElement("span");
+      type.innerText = types[i]["type"]["name"].toUpperCase();
+      type.classList.add("type-box");
+      type.classList.add(types[i]["type"]["name"]);
+      typesDiv.append(type);
+    }
+
+
+    document.getElementById("pokemon-description").innerText = pokedex[this.id]["desc"];
+  }
+
+  function battle() {
+    let check = Math.floor(Math.random() * 2);
+    if (check == 1) {
+      //Catch chance
+    }
+    else {
+      //fail screen
+    }
+  }
+</script>
+
 </html>
