@@ -9,28 +9,24 @@ body {
     height: 500px;
     border: 10px solid lightgray;
     border-radius: 10px;
-
-    /* background-color: green; */
     display: flex;
     margin: 0 auto;
     margin-top: 60px;
 
     background: url("./pokeball.jpg") no-repeat;
     background-size: cover;
-    
+
 }
 
 #pokemon-info {
     width: 250px;
     height: 500px;
-    /* background-color: cyan; */
     text-align: center;
 }
 
 #pokemon-list {
     width: 250px;
     height: 500px;
-    /* background-color: yellow; */
     font-size: 18px;
     overflow-y: auto;
 }
@@ -169,12 +165,12 @@ body {
     overflow-y: auto;
 }
 
-#poke-choice-box{
+#poke-choice-box {
     width: 500px;
     height: 500px;
     border: 10px lightgray;
     border-radius: 10px;
-    
+
     background-color: green;
     display: flex;
     margin: 0 auto;
