@@ -168,3 +168,15 @@ body {
     font-size: 18px;
     overflow-y: auto;
 }
+
+#poke-choice-box{
+    width: 500px;
+    height: 500px;
+    border: 10px lightgray;
+    border-radius: 10px;
+    
+    background-color: green;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 60px;
+}

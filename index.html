@@ -34,85 +34,97 @@
     <button class="tablink" onclick="openPage('info', this, 'red')">Poke-Info</button>
     <button class="tablink" onclick="openPage('account', this, 'orange')">Account</button>
  
- <!-- - - - - Pre Run Tab - - - - -->    
-    <div id="run" class="tabcontent">
-     <head>
-      <style>
-      .button {
-      display: inline-block;
-      border-radius: 4px;
-      background-color: #f4511e;
-      border: none;
-      color: #FFFFFF;
-      text-align: center;
-      font-size: 28px;
-      padding: 20px;
-      width: 200px;
-      transition: all 0.5s;
-      cursor: pointer;
-      margin: 5px;
+ <!-- - - - - Pre Run Tab - - - - -->
+   <head>
+     <style>
+       .button {
+          display: inline-block;
+          border-radius: 4px;
+          background-color: #f4511e;
+          border: none;
+          color: #FFFFFF;
+          text-align: center;
+          font-size: 28px;
+          padding: 20px;
+          width: 200px;
+          transition: all 0.5s;
+          cursor: pointer;
+          margin: 5px;
       }
       
       .button span {
-      cursor: pointer;
-      display: inline-block;
-      position: relative;
-      transition: 0.5s;
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
       }
       
       .button span:after {
-      content: '\00bb';
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      right: -20px;
-      transition: 0.5s;
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
       }
       
       .button:hover span {
-      padding-right: 25px;
+          padding-right: 25px;
       }
       
       .button:hover span:after {
-      opacity: 1;
-      right: 0;
+          opacity: 1;
+          right: 0;
       }
       
       .buttoncontent {
-        color: black;
-        display: none;
-        padding: 50px;
-        text-align: center;
+      color: black;
+      display: none;
+      padding: 50px;
+      text-align: center;
       }
-      </style>
-    </head>
+      
+      .poke-choice-button{
+      font-family: Arial;
+      color: #ffffff;
+      font-size: 22px;
+      background: #b834d9;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+      }
+      
+      
+     </style>
+   </head>
+    <div id="run" class="tabcontent">
       <body>
       <button class="button" onclick="openPage('pregame', this, 'red')" style="vertical-align:middle"><span>Choose Starter </span></button>      
       </body>
     </div>
     
     <div id="pregame" class="tabcontent">
-      <button class="#poke-choice-button" onclick=giveStarter>Random</button>
+      <button class="poke-choice-button" onclick="giveStarter()">Random</button>
       <button class="button" onclick="openPage('game', this, 'red')" style="vertical-align:middle"><span>Start Run </span></button>
     </div>
 
-<!-- - - - - Actual Run Tab - - - - -->    
-    <div id="game" class="tabcontent">
+<!-- - - - - Actual Run Tab - - - - -->
+    <head>
       <style>
-        .spawner {
+        .kanto-button{
         background-image: url(kanto.png);
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
-        width: 500px;
-        height: 500px;
+        width: 639px;
+        height: 526px;
         border: none;
         cursor: pointer;
       }
-      </style>
+      </style>      
+    </head>
+    <div id="game" class="tabcontent">
       <body>
-        <button class="game" style="vertical-align:left"><span></span></button>
-        
+        <button class="kanto-button" style="vertical-align:left"><span></span></button>
       </body>
     </div>
 
@@ -125,7 +137,7 @@
         <title>Pokedex</title>
   
         <link rel="stylesheet" href="pokedex.css">
-        <script src="pokedex.js"></script>
+        <script type = "module" src="pokedex.js"></script>
     </head>
   
     <body>
@@ -189,7 +201,6 @@
         elmnt.style.backgroundColor = color;
       }
       
-      // Get the element with id="defaultOpen" and click on it
       document.getElementById("defaultOpen").click();
     </script>
   </body>

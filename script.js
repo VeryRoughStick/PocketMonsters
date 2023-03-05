@@ -38,6 +38,7 @@ async function getPokemon(num){
 
 
 function giveStarter(){
+    
     let StartVal = Math.floor(Math.random() * 3);
     
     if(StartVal == 1){
